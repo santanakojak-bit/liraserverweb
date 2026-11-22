@@ -1,5 +1,65 @@
 # liraserverweb
+
 Liraservia — Sistema MVC Modular em Python 3.12+ com Motor de IA (DDGS), persistência MySQL (PyMySQL) e auditoria automática via triggers.
+# Liraservia — Sistema MVC Modular e Motor de IA
+
+Arquitetura Python MVC modular, escalável e segura para o ecossistema **Liraservia**. O sistema mantém separação total entre os módulos antigos de cadastro (CRUD) e os novos componentes de Inteligência Artificial, com banco de dados MySQL e auditoria automática.
+
+---
+
+## Estrutura de Pastas do Projeto
+
+```text
+lirarservia_python/
+│
+├── core/                               # Núcleo da Aplicação
+│   ├── llm/                            # Serviço de Inteligência Artificial
+│   │   ├── __init__.py
+│   │   └── llm_client.py               # Cliente de busca em tempo real (DDGS)
+│   ├── __init__.py
+│   ├── base_model.py                   # Operações básicas de banco (CRUD) e auditoria
+│   ├── config.py                       # Configurações gerais do sistema
+│   ├── database.py                     # Conexão com o banco via PyMySQL
+│   ├── exceptions.py                   # Tratamento centralizado de erros
+│   └── security.py                     # Criptografia e segurança
+│
+├── modules/                            # Módulos de Negócio Isolados
+│   ├── administrativo/
+│   │   └── ai/                         # Estrutura MVC da IA no painel Administrativo
+│   │       ├── controllers/
+│   │       ├── models/
+│   │       └── views/
+│   └── app/
+│       └── ai/                         # Estrutura MVC da IA no Módulo App
+│           ├── controllers/
+│           │   └── app_ai_controller.py
+│           ├── models/
+│           │   ├── agent_model.py
+│           │   ├── message_model.py
+│           │   └── thread_model.py
+│           └── views/
+│               └── agent_view.py
+│
+├── routers/                            # Central de Rotas
+│   ├── admin_router.py
+│   ├── app_router.py
+│   └── site_router.py
+│
+├── shared/                             # Recursos e Utilitários Compartilhados
+│   ├── __init__.py
+│   ├── constants/                      # Constantes globais e códigos de status
+│   │   ├── __init__.py
+│   │   └── status_codes.py
+│   ├── utils/                          # Funções auxiliares de formatação e limpeza
+│   │   ├── __init__.py
+│   │   └── formatters.py
+│   └── views/                          # Telas e respostas genéricas reutilizáveis
+│       └── __init__.py
+│
+├── .env
+├── main.py                             # Arquivo principal que inicia o sistema
+├── README.md
+└── requirements.txt
 Copyright (c) 2026 Robson Santana - SANTANAKOJAK / sr07webdba.santana.
 					Todos os direitos reservados.
 
